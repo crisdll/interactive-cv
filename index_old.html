@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Interactive CV - BI Developer specialized in Power BI, NodeJS and APIs">
+  <meta name="keywords" content="BI, Business Intelligence, Power BI, NodeJS, SQL, Azure, Python">
+  <meta name="author" content="Cristina Diéguez Llaràs">
+  
+  <title>Interactive CV - Cristina Diéguez Llaràs</title>
+
+  <!-- Google Fonts - Montserrat with multiple weights -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet">
+
+  <!-- Preload critical resources -->
+  <link rel="preload" href="css/style.css" as="style">
+  <link rel="stylesheet" href="css/style.css">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+</head>
+<body>
+  <!-- Skip link for accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  
+  <!-- Navigation -->
+  <nav aria-label="Main navigation">
+    <ul class="nav-menu">
+      <li><a href="#about" data-i18n="navigation.about">About</a></li>
+      <li><a href="#experience" data-i18n="navigation.experience">Experience</a></li>
+      <li><a href="#skills" data-i18n="navigation.skills">Skills</a></li>
+      <li><a href="#projects" data-i18n="navigation.projects">Projects</a></li>
+      <li><a href="#contact" data-i18n="navigation.contact">Contact</a></li>
+    </ul>
+    
+    <!-- Language and theme controls -->
+    <div class="nav-controls">
+      <div class="language-selector">
+        <button class="language-btn active" data-lang="en" onclick="changeLanguage('en')" aria-label="English">🇺🇸 EN</button>
+        <button class="language-btn" data-lang="es" onclick="changeLanguage('es')" aria-label="Español">🇪🇸 ES</button>
+        <button class="language-btn" data-lang="ca" onclick="changeLanguage('ca')" aria-label="Català">🏴󠁥󠁳󠁣󠁴󠁿 CA</button>
+      </div>
+      <button onclick="toggleTheme()" aria-label="Toggle theme" class="theme-toggle">🌓</button>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header>
+    <img src="img/profile.jpg" alt="Profile picture" class="profile-image" width="150" height="150">
+    <h1 data-i18n="header.title">Cristina Diéguez Llaràs</h1>
+    <h2 data-i18n="header.subtitle">BI Developer transitioning to Backend Development</h2>
+  </header>
+
+  <!-- Main content -->
+  <main id="main-content">
+    <!-- About section -->
+    <section id="about" aria-labelledby="about-heading" class="animate-on-scroll">
+      <h3 id="about-heading" data-i18n="sections.aboutTitle">About Me</h3>
+      <p data-i18n="sections.aboutText">
+        Telecommunications Engineer with 8+ years of experience in Business Intelligence and Data Engineering. 
+        Specialized in data visualization, ETL processes, and analytical solutions across large-scale corporate projects 
+        (Puig, Seat, Cosentino, Mutua Universal). Currently expanding skills in Python and backend development, 
+        leveraging strong foundation in SQL, data architecture, and problem-solving.
+      </p>
+    </section>
+
+    <!-- Experience & Education Timeline section -->
+    <section id="experience" aria-labelledby="experience-heading" class="animate-on-scroll">
+      <h3 id="experience-heading" data-i18n="sections.experienceTitle">Professional Journey</h3>
+      
+      <!-- Filter buttons -->
+      <div class="timeline-filters">
+        <button class="filter-btn active" data-filter="all" data-i18n="timeline.filters.all">All</button>
+        <button class="filter-btn" data-filter="work" data-i18n="timeline.filters.work">Work Experience</button>
+        <button class="filter-btn" data-filter="education" data-i18n="timeline.filters.education">Education</button>
+      </div>
+
+      <!-- Timeline -->
+      <div class="timeline">
+        <!-- Work Experience Items -->
+        <div class="timeline-item work" data-category="work">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <div class="timeline-date" data-i18n="timeline.work.current.date">2021 - Present</div>
+            <h4 data-i18n="timeline.work.current.title">Senior BI Developer</h4>
+            <div class="timeline-company" data-i18n="timeline.work.current.company">Freelance / Consulting</div>
+            <p data-i18n="timeline.work.current.description">
+              Advanced Power BI solutions, custom DAX calculations, and data visualization for multiple clients. 
+              Specialized in SAP Analytics Cloud integration and dashboard optimization.
+            </p>
+            <div class="timeline-skills">
+              <span class="skill-tag">Power BI</span>
+              <span class="skill-tag">SAP Analytics Cloud</span>
+              <span class="skill-tag">DAX</span>
+              <span class="skill-tag">Data Modeling</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item work" data-category="work">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <div class="timeline-date" data-i18n="timeline.work.puig.date">2019 - 2021</div>
+            <h4 data-i18n="timeline.work.puig.title">BI Analyst</h4>
+            <div class="timeline-company" data-i18n="timeline.work.puig.company">Puig</div>
+            <p data-i18n="timeline.work.puig.description">
+              Developed comprehensive BI solutions for luxury brands portfolio. 
+              Implemented ETL processes and created executive dashboards for international markets.
+            </p>
+            <div class="timeline-skills">
+              <span class="skill-tag">SAP HANA</span>
+              <span class="skill-tag">SAP Lumira</span>
+              <span class="skill-tag">ETL</span>
+              <span class="skill-tag">Data Warehouse</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item work" data-category="work">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <div class="timeline-date" data-i18n="timeline.work.seat.date">2017 - 2019</div>
+            <h4 data-i18n="timeline.work.seat.title">Data Analyst</h4>
+            <div class="timeline-company" data-i18n="timeline.work.seat.company">SEAT</div>
+            <p data-i18n="timeline.work.seat.description">
+              Automotive industry analytics focusing on production optimization and quality metrics. 
+              Created real-time dashboards for manufacturing processes.
+            </p>
+            <div class="timeline-skills">
+              <span class="skill-tag">SQL Server</span>
+              <span class="skill-tag">Power BI</span>
+              <span class="skill-tag">Manufacturing Analytics</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Education Items -->
+        <div class="timeline-item education" data-category="education">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <div class="timeline-date" data-i18n="timeline.education.backend.date">2024 - Present</div>
+            <h4 data-i18n="timeline.education.backend.title">Backend Development Specialization</h4>
+            <div class="timeline-company" data-i18n="timeline.education.backend.institution">Self-taught / Online Courses</div>
+            <p data-i18n="timeline.education.backend.description">
+              Expanding technical skills in Python, NodeJS, API development, and cloud technologies. 
+              Focus on transitioning from BI to full-stack development.
+            </p>
+            <div class="timeline-skills">
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">NodeJS</span>
+              <span class="skill-tag">APIs</span>
+              <span class="skill-tag">Azure</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item education" data-category="education">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <div class="timeline-date" data-i18n="timeline.education.telecom.date">2012 - 2016</div>
+            <h4 data-i18n="timeline.education.telecom.title">Telecommunications Engineering</h4>
+            <div class="timeline-company" data-i18n="timeline.education.telecom.institution">Universitat Politècnica de Catalunya</div>
+            <p data-i18n="timeline.education.telecom.description">
+              Bachelor's degree with specialization in signal processing and data communication systems. 
+              Strong foundation in mathematics, programming, and system analysis.
+            </p>
+            <div class="timeline-skills">
+              <span class="skill-tag">Mathematics</span>
+              <span class="skill-tag">Signal Processing</span>
+              <span class="skill-tag">Programming</span>
+              <span class="skill-tag">Systems Analysis</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills section -->
+    <section id="skills" aria-labelledby="skills-heading" class="animate-on-scroll">
+      <h3 id="skills-heading" data-i18n="sections.skillsTitle">Technical Skills</h3>
+      
+      <div class="skills-grid">
+        <!-- BI & Visualization -->
+        <div class="skill-category">
+          <h4 data-i18n="skillCategories.bi">BI & Visualization</h4>
+          <ul data-skill-category="bi" role="list">
+            <li>Power BI (Advanced DAX, Custom Visuals)</li>
+            <li>SAP Analytics Cloud</li>
+            <li>SAP Lumira Designer</li>
+            <li>Design Studio</li>
+          </ul>
+        </div>
+
+        <!-- Data Engineering -->
+        <div class="skill-category">
+          <h4 data-i18n="skillCategories.data">Data Engineering</h4>
+          <ul data-skill-category="data" role="list">
+            <li>SAP HANA</li>
+            <li>SAP Data Services</li>
+            <li>Power BI Dataflows</li>
+            <li>Databricks (learning)</li>
+            <li>SQL (MySQL, PostgreSQL basics)</li>
+          </ul>
+        </div>
+
+        <!-- Programming & Web Development -->
+        <div class="skill-category">
+          <h4 data-i18n="skillCategories.programming">Programming & Web Development</h4>
+          <ul data-skill-category="programming" role="list">
+            <li>Python (expanding knowledge)</li>
+            <li>SQL (8+ years experience)</li>
+            <li>NodeJS (API development)</li>
+            <li>HTML/CSS/JavaScript</li>
+            <li>Google Apps Script</li>
+          </ul>
+        </div>
+
+        <!-- Languages -->
+        <div class="skill-category">
+          <h4 data-i18n="skillCategories.languages">Languages</h4>
+          <ul data-skill-category="languages" role="list">
+            <li>Catalan (native)</li>
+            <li>Spanish (native)</li>
+            <li>English (technical proficiency)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Enhanced Projects section -->
+    <section id="projects" aria-labelledby="projects-heading" class="animate-on-scroll animate-in">
+      <h3 id="projects-heading" data-i18n="sections.projectsTitle">Personal Projects</h3>
+      <p class="projects-intro" data-i18n="projects.intro">
+        Personal projects developed in my free time to explore new technologies and expand my development skills.
+      </p>
+      
+      <div class="projects-grid">
+        <article class="project-card featured">
+          <div class="project-image">
+            <span class="project-icon">🌐</span>
+          </div>
+          <div class="project-content">
+            <h4 data-i18n="projects.wedding.title">Wedding Website</h4>
+            <p data-i18n="projects.wedding.description">
+              Complete wedding website with RSVP form, photo gallery, and guest management. 
+              Frontend connected to Google Sheets using Apps Script for data collection.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">HTML/CSS</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">Google Apps Script</span>
+              <span class="tech-tag">Google Sheets API</span>
+            </div>
+            <div class="project-links">
+              <a href="projects/web-boda/README.md" target="_blank" rel="noopener noreferrer" class="btn-primary" data-i18n="projects.wedding.link">View Details</a>
+              <a href="#" class="btn-secondary" data-i18n="projects.demo">Live Demo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card featured">
+          <div class="project-image">
+            <span class="project-icon">💻</span>
+          </div>
+          <div class="project-content">
+            <h4 data-i18n="projects.nodejs.title">NodeJS + Azure Project</h4>
+            <p data-i18n="projects.nodejs.description">
+              End-to-end web application with SharePoint frontend, custom NodeJS API, and MySQL database hosted on Azure. 
+              Implements authentication, CRUD operations, and real-time data synchronization.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">NodeJS</span>
+              <span class="tech-tag">Express</span>
+              <span class="tech-tag">MySQL</span>
+              <span class="tech-tag">Azure</span>
+              <span class="tech-tag">SharePoint</span>
+            </div>
+            <div class="project-links">
+              <a href="projects/node-azure/README.md" target="_blank" rel="noopener noreferrer" class="btn-primary" data-i18n="projects.nodejs.link">View Details</a>
+              <a href="#" class="btn-secondary" data-i18n="projects.github">GitHub</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-image">
+            <span class="project-icon">📊</span>
+          </div>
+          <div class="project-content">
+            <h4 data-i18n="projects.powerbi.title">Power BI Advanced Solutions</h4>
+            <p data-i18n="projects.powerbi.description">
+              Collection of advanced Power BI dashboards featuring custom JavaScript visualizations, 
+              complex DAX calculations, and innovative data storytelling techniques.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">Power BI</span>
+              <span class="tech-tag">DAX</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">Custom Visuals</span>
+            </div>
+            <div class="project-links">
+              <a href="projects/powerbi/README.md" target="_blank" rel="noopener noreferrer" class="btn-primary" data-i18n="projects.powerbi.link">View Details</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-image">
+            <span class="project-icon">🎯</span>
+          </div>
+          <div class="project-content">
+            <h4 data-i18n="projects.cv.title">Interactive CV</h4>
+            <p data-i18n="projects.cv.description">
+              This responsive, multi-language CV built with vanilla JavaScript, featuring theme switching, 
+              smooth animations, and professional design patterns.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">HTML5</span>
+              <span class="tech-tag">CSS3</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">Responsive Design</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="btn-primary" data-i18n="projects.cv.link">View Source</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Contact section -->
+    <section id="contact" aria-labelledby="contact-heading" class="animate-on-scroll">
+      <h3 id="contact-heading" data-i18n="sections.contactTitle">Contact</h3>
+      <address>
+        📧 <a href="mailto:cristina.dieguez@email.com">cristina.dieguez@email.com</a><br>
+        🔗 <a href="https://github.com/cristina-dieguez" target="_blank" rel="noopener noreferrer">GitHub</a><br>
+        💼 <a href="https://linkedin.com/in/cristina-dieguez" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </address>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2024 Cristina Diéguez Llaràs</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="js/main.js"></script>
+</body>
+</html>

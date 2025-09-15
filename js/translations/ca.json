@@ -1,0 +1,53 @@
+{
+  "navigation": {
+    "about": "Sobre mi",
+    "experience": "Experiència",
+    "skills": "Habilitats",
+    "projects": "Projectes", 
+    "contact": "Contacte"
+  },
+  "header": {
+    "title": "Cristina Diéguez Llaràs",
+    "subtitle": "Enginyera de Dades i Experta en Visualització"
+  },
+  "sections": {
+    "aboutTitle": "Sobre mi",
+    "aboutText": "Enginyera de Telecomunicacions amb més de 8 anys d'experiència en Intel·ligència Empresarial i Enginyeria de Dades. Especialitzada en visualització de dades, processos ETL i solucions analítiques en projectes corporatius a gran escala (HP,Puig, Seat, Cosentino, Mutua Universal). Actualment ampliant les seves habilitats en Python i desenvolupament backend, aprofitant una sòlida base en SQL, arquitectura de dades i resolució de problemes.",
+    "experienceTitle": "Trajectòria Professional",
+    "skillsTitle": "Habilitats Tècniques",
+    "projectsTitle": "Projectes Personals",
+    "contactTitle": "Contacte"
+  },
+  "timeline": {
+    "filters": {
+      "all": "Tot",
+      "work": "Experiència Laboral",
+      "education": "Educació"
+    }
+  },
+  "projects": {
+    "intro": "Projectes personals desenvolupats en el meu temps lliure per explorar noves tecnologies i ampliar les meves habilitats de desenvolupament.",
+    "demo": "Demo en Viu",
+    "github": "GitHub",
+    "wedding": {
+      "title": "Web de Casament",
+      "description": "Lloc web complet de casament amb formulari RSVP, galeria de fotos i gestió de convidats. Frontend connectat a Google Sheets usant Apps Script per a recol·lecció de dades.",
+      "link": "Veure Detalls"
+    },
+    "nodejs": {
+      "title": "Projecte NodeJS + Azure",
+      "description": "Aplicació web end-to-end amb frontend en SharePoint, API NodeJS personalitzada i base de dades MySQL allotjada en Azure. Implementa autenticació, operacions CRUD i sincronització de dades en temps real.",
+      "link": "Veure Detalls"
+    },
+    "powerbi": {
+      "title": "Solucions Avançades Power BI",
+      "description": "Col·lecció de dashboards avançats de Power BI amb visualitzacions JavaScript personalitzades, càlculs DAX complexos i tècniques innovadores de storytelling amb dades.",
+      "link": "Veure Detalls"
+    },
+    "cv": {
+      "title": "CV Interactiu",
+      "description": "Aquest CV responsive i multiidioma construït amb JavaScript vanilla, amb canvi de tema, animacions suaus i patrons de disseny professional.",
+      "link": "Veure Codi"
+    }
+  }
+}
