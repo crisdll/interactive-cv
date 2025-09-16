@@ -10,9 +10,14 @@ const CONFIG = {
     }
 };
 
+
 // ============================================================================
 // INTERNATIONALIZATION MODULE
 // ============================================================================
+let timelineData = [];
+let skillsData = [];
+let projectsData = [];
+
 const I18nManager = {
     currentLanguage: CONFIG.DEFAULT_LANGUAGE,
     translations: {},
@@ -125,6 +130,10 @@ const I18nManager = {
         });
     }
 };
+
+function getCurrentLang() {
+  return I18nManager.currentLanguage || CONFIG.DEFAULT_LANGUAGE;
+}
 
 // ============================================================================
 // THEME MANAGER MODULE
@@ -240,41 +249,42 @@ const TimelineManager = {
  * @param {string} type - 'work' or 'education'
  */
 function renderTimeline(items, filterType = 'all') {
-  console.log('Rendering timeline with items:', items);
   const timeline = document.querySelector('.timeline');
   if (!timeline) return;
 
-  // Clear the timeline before rendering
   timeline.innerHTML = '';
-  let visibleIndex = 0; // Counter for visible items
-
+  let visibleIndex = 0;
+  const lang = getCurrentLang();
 
   items.forEach(item => {
-    // Use _type property to distinguish between work and education
     const type = item._type || 'work';
     if (filterType !== 'all' && filterType !== type) return;
 
-    const companyOrInstitution = type === 'work' ? item.company : item.institution;
-    const positionOrDegree = type === 'work' ? item.position : item.degree;
-    const startDate = item.start_date || '';
-    const endDate = type === 'education'
-    ? (item.end_date || '')
-    : (item.end_date || 'Present');
-    const shortDescription = item.short_description || '';
-    const description = formatDescription(item.description || '');
+    const companyOrInstitution = type === 'work'
+      ? item[`company_${lang}`] || item.company_en
+      : item[`institution_${lang}`] || item.institution_en;
+
+    const positionOrDegree = type === 'work'
+      ? item[`position_${lang}`] || item.position_en
+      : item[`degree_${lang}`] || item.degree_en;
+
+    const shortDescription = item[`short_description_${lang}`] || item.short_description_en || '';
+    const description = formatDescription(item[`description_${lang}`] || item.description_en || '');
     const keyWords = item.key_words ? item.key_words.split(';').map(k => k.trim()) : [];
 
-    // Create the timeline item HTML
+    const startDate = item.start_date || '';
+    const endDate = type === 'education'
+      ? (item.end_date || '')
+      : (item.end_date || 'Present');
+
     const timelineItem = document.createElement('div');
     timelineItem.className = `timeline-item ${type}`;
     timelineItem.dataset.category = type;
-
-    // Alternate left/right classes for visible items
     timelineItem.classList.add(visibleIndex % 2 === 0 ? 'left' : 'right');
     visibleIndex++;
 
     let dateHtml = startDate;
-    if (endDate) {dateHtml += ` - ${endDate}`;}
+    if (endDate) { dateHtml += ` - ${endDate}`; }
 
     timelineItem.innerHTML = `
       <div class="timeline-marker"></div>
@@ -370,20 +380,20 @@ function renderSkills(skills) {
   const skillsGrid = document.querySelector('.skills-grid');
   if (!skillsGrid) return;
 
-  skillsGrid.innerHTML = ''; // Clear previous content
+  skillsGrid.innerHTML = '';
+  const lang = getCurrentLang();
 
   skills.forEach(skill => {
-    // Split description by '·' and filter out empty lines
-    const items = skill.description
+    const category = skill[`category_${lang}`] || skill.category_en;
+    const items = (skill[`description_${lang}`] || skill.description_en || '')
       .split('·')
       .map(s => s.trim())
       .filter(Boolean);
 
-    // Create skill category block
     const categoryDiv = document.createElement('div');
     categoryDiv.className = 'skill-category';
     categoryDiv.innerHTML = `
-      <h4>${skill.category}</h4>
+      <h4>${category}</h4>
       <ul>
         ${items.map(item => `<li>${item}</li>`).join('')}
       </ul>
@@ -400,22 +410,23 @@ function renderProjects(projects) {
   const projectsGrid = document.querySelector('.projects-grid');
   if (!projectsGrid) return;
 
-  projectsGrid.innerHTML = ''; // Clear previous content
+  projectsGrid.innerHTML = '';
+  const lang = getCurrentLang();
 
   projects.forEach(project => {
-    // Split technologies by ';' and filter out empty strings
+    const title = project[`title_${lang}`] || project.title_en;
+    const description = project[`description_${lang}`] || project.description_en || '';
+    const formattedDescription = description.replace(/\*([^*]+)\*/g, '<p class="project-em">$1</p>');
     const techs = project.technologies
       .split(';')
       .map(t => t.trim())
       .filter(Boolean);
-    const formattedDescription = project.description.replace(/\*([^*]+)\*/g, '<p class="project-em">$1</p>');
 
-    // Build project card HTML
     const card = document.createElement('article');
     card.className = 'project-card';
     card.innerHTML = `
       <div class="project-image">
-        <h4>${project.title}</h4>
+        <h4>${title}</h4>
       </div>
       <div class="project-content">
         <p>${formattedDescription}</p>
@@ -464,6 +475,11 @@ const NavigationManager = {
     }
 };
 
+function toggleBurgerMenu() {
+  document.querySelector('.nav-menu').classList.toggle('open');
+  document.querySelector('.nav-controls').classList.toggle('open');
+}
+
 // ============================================================================
 // GLOBAL FUNCTIONS
 // ============================================================================
@@ -474,12 +490,17 @@ function toggleTheme() {
 
 async function changeLanguage(language) {
     await I18nManager.changeLanguage(language);
+    renderTimeline(timelineData, 'all');
+    renderSkills(skillsData);
+    renderProjects(projectsData);
 }
 // Helper function to hide the overlay
 function hideLoadingOverlay() {
     const overlay = document.getElementById('loading-overlay');
     if (overlay) overlay.style.display = 'none';
 }
+
+
 
 // ============================================================================
 // APPLICATION INITIALIZATION
@@ -501,19 +522,19 @@ document.addEventListener('DOMContentLoaded', async function() {
         ])
         .then(([experiences, educations]) => {
             // Combine both arrays and render all items
-            const allItems = [
+            timelineData = [
                 ...experiences.map(item => ({ ...item, _type: 'work' })),
                 ...educations.map(item => ({ ...item, _type: 'education' }))
             ];
             // Sort by start_date descending (most recent first)
-            allItems.sort((a, b) => {
+            timelineData.sort((a, b) => {
                 // If start_date is missing, treat as oldest
                 if (!a.start_date) return 1;
                 if (!b.start_date) return -1;
                 // Compare as numbers if possible, else as strings
                 return b.start_date.localeCompare(a.start_date);
             });
-            renderTimeline(allItems, 'all');
+            renderTimeline(timelineData, 'all');
             hideLoadingOverlay();
         })
         .catch(err => {
@@ -523,12 +544,12 @@ document.addEventListener('DOMContentLoaded', async function() {
         // Fetch skills from API and render
         fetch("https://cv-backend-ttra.onrender.com/api/skills/")
             .then(res => res.json())
-            .then(data => renderSkills(data))
+            .then(data => {skillsData = data; renderSkills(data)})
             .catch(err => console.error('Error fetching skills:', err));
 
         fetch("https://cv-backend-ttra.onrender.com/api/projects/")
             .then(res => res.json())
-            .then(data => renderProjects(data))
+            .then(data => {projectsData = data; renderProjects(data)})
             .catch(err => console.error('Error fetching projects:', err));
         
         console.log('✅ Interactive CV initialized successfully');

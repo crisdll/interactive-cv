@@ -26,28 +26,6 @@
     }
   },
   "projects": {
-    "intro": "Personal projects developed in my free time to explore new technologies and expand my development skills.",
-    "demo": "Live Demo",
-    "github": "GitHub",
-    "wedding": {
-      "title": "Wedding Website",
-      "description": "Complete wedding website with RSVP form, photo gallery, and guest management. Frontend connected to Google Sheets using Apps Script for data collection.",
-      "link": "View Details"
-    },
-    "nodejs": {
-      "title": "NodeJS + Azure Project",
-      "description": "End-to-end web application with SharePoint frontend, custom NodeJS API, and MySQL database hosted on Azure. Implements authentication, CRUD operations, and real-time data synchronization.",
-      "link": "View Details"
-    },
-    "powerbi": {
-      "title": "Power BI Advanced Solutions",
-      "description": "Collection of advanced Power BI dashboards featuring custom JavaScript visualizations, complex DAX calculations, and innovative data storytelling techniques.",
-      "link": "View Details"
-    },
-    "cv": {
-      "title": "Interactive CV",
-      "description": "This responsive, multi-language CV built with vanilla JavaScript, featuring theme switching, smooth animations, and professional design patterns.",
-      "link": "View Source"
-    }
+    "intro": "Personal projects developed in my free time to explore new technologies and expand my development skills."
   }
 }

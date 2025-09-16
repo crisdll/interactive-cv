@@ -26,28 +26,6 @@
     }  
   },
   "projects": {
-    "intro": "Proyectos personales desarrollados en mi tiempo libre para explorar nuevas tecnologías y ampliar mis habilidades de desarrollo.",
-    "demo": "Demo en Vivo",
-    "github": "GitHub",
-    "wedding": {
-      "title": "Web de Boda",
-      "description": "Sitio web completo de boda con formulario RSVP, galería de fotos y gestión de invitados. Frontend conectado a Google Sheets usando Apps Script para recolección de datos.",
-      "link": "Ver Detalles"
-    },
-    "nodejs": {
-      "title": "Proyecto NodeJS + Azure",
-      "description": "Aplicación web end-to-end con frontend en SharePoint, API NodeJS personalizada y base de datos MySQL alojada en Azure. Implementa autenticación, operaciones CRUD y sincronización de datos en tiempo real.",
-      "link": "Ver Detalles"
-    },
-    "powerbi": {
-      "title": "Soluciones Avanzadas Power BI",
-      "description": "Colección de dashboards avanzados de Power BI con visualizaciones JavaScript personalizadas, cálculos DAX complejos y técnicas innovadoras de storytelling con datos.",
-      "link": "Ver Detalles"
-    },
-    "cv": {
-      "title": "CV Interactivo",
-      "description": "Este CV responsive y multiidioma construido con JavaScript vanilla, con cambio de tema, animaciones suaves y patrones de diseño profesional.",
-      "link": "Ver Código"
-    }
+    "intro": "Proyectos personales desarrollados en mi tiempo libre para explorar nuevas tecnologías y ampliar mis habilidades de desarrollo."
   }
 }

@@ -26,28 +26,6 @@
     }
   },
   "projects": {
-    "intro": "Projectes personals desenvolupats en el meu temps lliure per explorar noves tecnologies i ampliar les meves habilitats de desenvolupament.",
-    "demo": "Demo en Viu",
-    "github": "GitHub",
-    "wedding": {
-      "title": "Web de Casament",
-      "description": "Lloc web complet de casament amb formulari RSVP, galeria de fotos i gestió de convidats. Frontend connectat a Google Sheets usant Apps Script per a recol·lecció de dades.",
-      "link": "Veure Detalls"
-    },
-    "nodejs": {
-      "title": "Projecte NodeJS + Azure",
-      "description": "Aplicació web end-to-end amb frontend en SharePoint, API NodeJS personalitzada i base de dades MySQL allotjada en Azure. Implementa autenticació, operacions CRUD i sincronització de dades en temps real.",
-      "link": "Veure Detalls"
-    },
-    "powerbi": {
-      "title": "Solucions Avançades Power BI",
-      "description": "Col·lecció de dashboards avançats de Power BI amb visualitzacions JavaScript personalitzades, càlculs DAX complexos i tècniques innovadores de storytelling amb dades.",
-      "link": "Veure Detalls"
-    },
-    "cv": {
-      "title": "CV Interactiu",
-      "description": "Aquest CV responsive i multiidioma construït amb JavaScript vanilla, amb canvi de tema, animacions suaus i patrons de disseny professional.",
-      "link": "Veure Codi"
-    }
+    "intro": "Projectes personals desenvolupats en el meu temps lliure per explorar noves tecnologies i ampliar les meves habilitats de desenvolupament."
   }
 }
