@@ -17,6 +17,7 @@ const CONFIG = {
 let timelineData = [];
 let skillsData = [];
 let projectsData = [];
+let articlesData  = []
 
 const I18nManager = {
     currentLanguage: CONFIG.DEFAULT_LANGUAGE,
@@ -513,6 +514,7 @@ async function changeLanguage(language) {
     renderTimeline(timelineData, 'all');
     renderSkills(skillsData);
     renderProjects(projectsData);
+    renderBlogArticles(articlesData)
 }
 // Helper function to hide the overlay
 function hideLoadingOverlay() {
