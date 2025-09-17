@@ -444,6 +444,26 @@ function renderProjects(projects) {
   });
 }
 
+// ============================================================================
+// ARTICLES RENDER
+// ============================================================================
+function renderBlogArticles(articles) {
+  const lang = getCurrentLang();
+  const container = document.querySelector('.blog-articles');
+
+  if (!container) return;
+  container.innerHTML = `
+    <ul>
+      ${articles.map(article => `
+        <li>
+          <a href="${article.url}" target="_blank" rel="noopener">
+            ${article[`title_${lang}`] || article.title_en}
+          </a>
+        </li>
+      `).join('')}
+    </ul>
+  `;
+}
 
 // ============================================================================
 // NAVIGATION MANAGER
@@ -551,7 +571,12 @@ document.addEventListener('DOMContentLoaded', async function() {
             .then(res => res.json())
             .then(data => {projectsData = data; renderProjects(data)})
             .catch(err => console.error('Error fetching projects:', err));
-        
+
+        fetch("https://cv-backend-ttra.onrender.com/api/articles/")
+            .then(res => res.json())
+            .then(data => {articlesData = data; renderBlogArticles(data)})
+            .catch(err => console.error('Error fetching articles:', err));
+
         console.log('✅ Interactive CV initialized successfully');
         
     } catch (error) {

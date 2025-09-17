@@ -16,7 +16,8 @@
     "experienceTitle": "Trayectoria Profesional",
     "skillsTitle": "Habilidades Técnicas",
     "projectsTitle": "Proyectos Personales",
-    "contactTitle": "Contacto"
+    "contactTitle": "Contacto",
+    "blogTitle": "Artículos Publicados"
   },
   "timeline": {
     "filters": {
